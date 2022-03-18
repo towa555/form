@@ -1,6 +1,6 @@
 <template>
 <h1> CANADORE College Student Form</h1>
-<form >
+<form id="eventDisplay" >
     <label for="Studentname">Studentname</label>
     <input type="text" required v-model="name">
 
@@ -20,8 +20,8 @@
       <input type="checkbox" v-model="terms" required>
       <label for="checkbox"> accept terms and conditions</label>
     </div>
-    <div class="submit">
-      <button>Submit Student Form</button>
+    <div class="submit" >
+      <button v-on:click="changeBackgroundColor">Submit Student Form</button>
     </div>
   </form>
   <div class="bag">
@@ -44,7 +44,14 @@ export default {
       certificate: '',
       terms: false,
       age: '',
+      changeColor: false,
     };
+  },
+  method: {
+    changeBackgroundColor() {
+      document.getElementById('eventDisplay').style.backgroundColor = '#000';
+    },
+
   },
 
 };
