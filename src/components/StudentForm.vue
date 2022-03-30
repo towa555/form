@@ -1,6 +1,6 @@
 <template>
-<h1> CANADORE College Student Form</h1>
-<form id="eventDisplay" >
+<h1> {{title}}</h1>
+<form v-bind:style="{background: activeColor}">
     <label for="Studentname">Studentname</label>
     <input type="text" required v-model="name">
 
@@ -8,7 +8,6 @@
     <input type="email" required v-model="email">
        <label for="age">AGE:</label>
     <input type="number" required v-model="age">
-
     <label for="role">CERITIFICATE:</label>
     <select v-model="certificate">
       <option value="common entrance">common entrance</option>
@@ -21,7 +20,7 @@
       <label for="checkbox"> accept terms and conditions</label>
     </div>
     <div class="submit" >
-      <button v-on:click="changeBackgroundColor">Submit Student Form</button>
+      <button v-on:click="submit">Submit Student Form</button>
     </div>
   </form>
   <div class="bag">
@@ -44,12 +43,15 @@ export default {
       certificate: '',
       terms: false,
       age: '',
-      changeColor: false,
+      title: 'Student Form',
+      activeColor: 'white',
     };
   },
-  method: {
-    changeBackgroundColor() {
-      document.getElementById('eventDisplay').style.backgroundColor = '#000';
+  methods: {
+    submit(event) {
+      event.preventDefault();
+      this.title = 'form is now submitted and no otherr changes can be made.';
+      this.activeColor = 'lightgrey';
     },
 
   },
@@ -64,7 +66,6 @@ h1{
 form{
   max-width: 420px;
   margin: 30px auto;
-  background: white;
   text-align: center;
   padding: 40px;
   border-radius: 10px;

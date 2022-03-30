@@ -22,7 +22,7 @@ export default {
 }
 body {
   margin: 0;
-  background-image: url(assets/internet.jpg);
+  background-image: url(assets/grey.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
